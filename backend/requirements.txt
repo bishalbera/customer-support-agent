@@ -1,0 +1,5 @@
+requests
+jupyter
+psycopg2
+python-dotenv 
+psycopg2-binary
