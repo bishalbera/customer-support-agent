@@ -2,7 +2,7 @@ from datetime import date, datetime
 from typing import Optional
 import pytz
 
-from backend.common import mindsdb_query
+from backend.common.mindsdb_query import mindsdb_query
 
 
 
