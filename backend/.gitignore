@@ -1,3 +1,4 @@
 venv
 .env
 notebooks/travel.db
+__pycache__
