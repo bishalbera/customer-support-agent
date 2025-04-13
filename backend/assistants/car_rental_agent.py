@@ -2,7 +2,7 @@ from backend.common.mindsdb_query import mindsdb_query
 from backend.utils.car_tools import search_car_rentals, update_car_rental, book_car_rental, cancel_car_rentals
 
 
-def car_rental_agent_query(query: str)-> dict:
+def handle_car_rental_query(query: str)-> dict:
     sql_query = f"""
     SELECT question,answer
     FROM car_rental_agent

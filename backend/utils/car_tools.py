@@ -7,17 +7,17 @@ from backend.common.mindsdb_query import mindsdb_query
 def search_car_rentals(
     location: Optional[str] = None,
     name: Optional[str] = None,
-    price: Optional[str] = None,
+    price_tier: Optional[str] = None,
     start_date: Optional[Union[datetime, date]] = None,
     end_date: Optional[Union[datetime, date]] = None
 ) ->list[dict]:
     """
-    Search for car rentals based on the given location, name, price, start and end date.
+    Search for car rentals based on the given location, name, price_tier, start and end date.
 
     Args:
         location: The locationn of the car rental. Default to None.
         name: The name of the car rental company. Default to None.
-        price: The price of the car rental. Default to None.
+        price_tier: The price_tier of the car rental. Default to None.
         start_date: The start date of the car rental. Default to None.
         end_date: The end date of the car rental. Default to None.
     Returns:
@@ -32,8 +32,8 @@ def search_car_rentals(
     if name: 
         conditions.append(f"name= '{name}'")
     
-    if price:
-        conditions.append(f"price = '{price}'")
+    if price_tier:
+        conditions.append(f"price_tier = '{price_tier}'")
     
     if start_date: 
         conditions.append(f"start_date = '{start_date}'")

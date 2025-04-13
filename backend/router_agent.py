@@ -1,3 +1,4 @@
+from backend.assistants.car_rental_agent import handle_car_rental_query
 from backend.assistants.flight_agent import handle_flight_query
 
 
@@ -6,6 +7,8 @@ def route_user_query(query: str) -> dict:
 
     if "flight" in  lowered or "ticket" in lowered or "airline" in lowered:
         return handle_flight_query(query)
+    elif "car" in lowered or "cars" in lowered or "rental" in lowered:
+        return handle_car_rental_query(query)
 
     else:
         return{
