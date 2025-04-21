@@ -4,7 +4,11 @@ import pytz
 
 from backend.common.mindsdb_query import mindsdb_query
 
+"""
+I couldn't use all these tools as planned. I was initially planning to use all the following functions with LangChain tools, but after discussing with the MindsDB team, I found out that the tools feature has some bugs and needs to be refactored :/ . They suggested a few workarounds, but since I'm not very comfortable with Python and my AWS bill is increasing, I came up with a workaround of my own. I'm now using MindsDB's Slack handler to forward user queries related to booking or canceling directly to live agents. :)
+"""
 
+#------------------------------------------------------------------------------------------------------------------------------------------
 
 
 def fetch_user_flight_info(passenger_id) -> list[dict]: 

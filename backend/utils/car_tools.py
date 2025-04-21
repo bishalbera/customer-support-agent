@@ -1,9 +1,16 @@
 from datetime import date, datetime
 from typing import Optional, Union
-
 from backend.common.mindsdb_query import mindsdb_query
 
 
+
+"""
+I couldn't use all these tools as planned. I was initially planning to use all the following functions with LangChain tools, but after discussing with the MindsDB team, I found out that the tools feature has some bugs and needs to be refactored :/ . They suggested a few workarounds, but since I'm not very comfortable with Python and my AWS bill is increasing, I came up with a workaround of my own. I'm now using MindsDB's Slack handler to forward user queries related to booking or canceling directly to live agents. :D
+"""
+
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
 def search_car_rentals(
     location: Optional[str] = None,
     name: Optional[str] = None,
@@ -13,7 +20,6 @@ def search_car_rentals(
 ) ->list[dict]:
     """
     Search for car rentals based on the given location, name, price_tier, start and end date.
-
     Args:
         location: The locationn of the car rental. Default to None.
         name: The name of the car rental company. Default to None.
@@ -49,14 +55,11 @@ def search_car_rentals(
 
     return mindsdb_query(sql_query)
 
-
 def book_car_rental(rental_id: int)->str:
     """
     Book a car rental by its ID.
-
     Args:
         rental_id: The ID of the car rental to book.
-    
     Returns:
         str: A message indicationg whether the car rental was booked or not.
     """
@@ -67,7 +70,6 @@ def book_car_rental(rental_id: int)->str:
     res = mindsdb_query(sql_query=sql_query)
     return f"Car rental {rental_id} successfully booked." if res else f"No car rental found with ID {rental_id}"
 
-
 def update_car_rental(
         rental_id: int,
         start_date: Optional[Union[datetime, date]] = None,
@@ -75,12 +77,10 @@ def update_car_rental(
 )-> str:
     """
     Update a car rental's start and end dates by its ID.
-
     Args:
         rental_id: The ID of the car rental to update.
         start_date: The new start date of the car rental. Default to None.
         end_date: The new end date of the car rental. Default to None.
-
     Returns:
         str: A message indicating whether the car rental was successfully updated or not.
     """
@@ -100,15 +100,12 @@ def update_car_rental(
     res = mindsdb_query(sql_query=sql_query)
     return f"Car rental {rental_id} successfully updated." if res else f"No car rental found with ID {rental_id}" 
 
-
 def cancel_car_rentals(rental_id: int)-> str:
     
     """
     cancel a car rental by its ID.
-
     Args:
         rental_id: The ID of the car rental to cancel.
-    
     Returns:
         str: A message indicating whether the car rental was successfully cancel or not.
     """

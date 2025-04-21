@@ -1,19 +1,19 @@
 from backend.common.mindsdb_query import mindsdb_query
-from backend.utils.car_tools import search_car_rentals, update_car_rental, book_car_rental, cancel_car_rentals
 
 
 def handle_car_rental_query(query: str)-> dict:
+    lowered = query.lower()
+    if "cancel" in lowered or "book" in lowered: 
+        sql_query_1 = f"""
+        INSERT INTO slack_datasource.messages (channel_id, text)
+        VALUES('C06FF39AWE9', '{query}');
+        """
+        result = mindsdb_query(sql_query=sql_query_1)
+        return {"response": "We have sent your request to our live agents."}
     sql_query = f"""
     SELECT question,answer
     FROM car_rental_agent
     WHERE question ='{query}'
-    USING
-    tools = [
-    '{search_car_rentals}',
-    '{update_car_rental}',
-    '{book_car_rental}',
-    '{cancel_car_rentals}'
-    ]
     """
 
     result = mindsdb_query(sql_query=sql_query)

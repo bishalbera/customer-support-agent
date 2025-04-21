@@ -7,3 +7,4 @@ pandas
 tabulate
 fastapi
 uvicorn
+langchain-core
