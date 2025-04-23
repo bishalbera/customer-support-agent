@@ -4,6 +4,9 @@
 A smart AI-driven customer support system for a travel agency to help users search and make travel arrangements like, flight booking, rescheduling, hotel booking and cancellation — powered by **Airbyte** & **MindsDB**.
 </p>
 
+![Home](https://github.com/user-attachments/assets/ff61e064-c3bc-44ee-ab3d-07dd333a120f)
+
+
 ## Introduction 
 
 In today's fast-paced world, **customer support expectations are higher than ever**. Travelers want instant assistance-whether it's fetching flight detials, searching for flights, booking hotels etc. Traditional support systems often struggle with high volume, long wait times, and repetitive queries. That's where an **AI-powered customer support agent** steps in: available 24/7, capable of resolving complex requests in seconds, and scalable without additional human cost. This project empowers airlines or travel platforms with a smart conversational agent that can handle real-time flight queries, booking updates, and cancellations — making customer experience smoother, faster, and more reliable.
