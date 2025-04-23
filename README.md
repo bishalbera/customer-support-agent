@@ -1,7 +1,7 @@
 <h1 align="center">✈️ Swiss AI Assistant</h1>
 
 <p align= "center">
-A smart AI-driven customer support system for a travel agency to help users search and make travel arrangements like, flight booking, rescheduling, hotel booking and cancellation — powered by **Airbyte** & **MindsDB**.
+A smart AI-driven customer support system for a travel agency to help users search and make travel arrangements like, flight booking, rescheduling, hotel booking and cancellation — powered by Airbyte & MindsDB.
 </p>
 
 ![Home](https://github.com/user-attachments/assets/ff61e064-c3bc-44ee-ab3d-07dd333a120f)
