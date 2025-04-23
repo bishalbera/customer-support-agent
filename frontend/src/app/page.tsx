@@ -51,7 +51,7 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <main className="bg-gray-950 text-white min-h-screen font-sans">
+    <main className="bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#3b0764] text-white min-h-screen font-sans">
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 border-b border-gray-800">
         <h1 className="text-2xl font-bold text-blue-400 font-mono">Swiss AI</h1>
@@ -156,7 +156,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-8 px-6 text-center border-t border-gray-800">
-        <p className="mb-2">Built with ❦ using Airbyte, Next.js & MindsDB</p>
+        <p className="mb-2">Built with 💖 using Airbyte, Next.js & MindsDB</p>
         <div className="space-x-4">
           <Link href="#" className="hover:text-blue-400">
             About

@@ -4,6 +4,9 @@ from backend.assistants.hotel_agent import handle_hotel_query
 
 
 def route_user_query(query: str) -> dict:
+    """
+    Route the user request to one of the flight, hotel or car rental assistant.
+    """
     lowered = query.lower()
 
     if "flight" in  lowered or "ticket" in lowered or "airline" in lowered:
