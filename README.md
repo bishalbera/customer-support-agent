@@ -13,6 +13,9 @@ In today's fast-paced world, **customer support expectations are higher than eve
 
 
 ## Project Overview
+![excalidraw](https://github.com/user-attachments/assets/dd4b7503-1dfd-4f44-aed9-40d7198c90ec)
+
+
 
 This project is **modular AI-powered customer support system** tailored for a travel agency platform. It offers specialized conversational agents for:
 - ✈️ **Flight searching**
