@@ -68,7 +68,7 @@ To enable intelligent decisions and real time data querying, we've built a data 
 
 This make sures that our AI  assistant always work on up-to-data
 
-##Demo
+## Demo
 [Click here](https://youtu.be/xG3zWpWC2w0) to watch the demo. After recording the demo, I realised that the text input box in the UI  was accidentally cut off due to OBS settings. It was my first time using OBS and I messed up 🤧. So sorry :)
 
 
