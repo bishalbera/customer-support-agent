@@ -66,7 +66,10 @@ To enable intelligent decisions and real time data querying, we've built a data 
 2. **Data Integration Tool**: Using **Airbyte**, we extract data from PostgreSQL and move it into **Amazon Redshift** in near real time.
 3. **AI Layer**: **MindsDB** connects to this Redshift warehouse and enables running SQL queries directly over it via natural language, thanks to the AI assistant model.
 
-This make sures that our AI  assistant always work on up-to-data.
+This make sures that our AI  assistant always work on up-to-data
+
+##Demo
+[Click here](https://youtu.be/xG3zWpWC2w0) to watch the demo. After recording the demo, I realised that the text input box in the UI  was accidentally cut off due to OBS settings. It was my first time using OBS and I messed up 🤧. So sorry :)
 
 
 
