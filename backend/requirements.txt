@@ -7,4 +7,5 @@ pandas
 tabulate
 fastapi
 uvicorn
+anthropic
 langchain-core

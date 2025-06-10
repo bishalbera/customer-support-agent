@@ -29,12 +29,10 @@ export default function ChatPage() {
     setIsTyping(true);
     setWaitMsg("");
 
-    // Set a timer for 30 seconds
     timeoutRef.current = setTimeout(() => {
       setWaitMsg("Just a sec, we're fetching your data...");
     }, 30 * 1000);
 
-    // Set another timer for 60 seconds
     longTimeoutRef.current = setTimeout(() => {
       setWaitMsg("Hang tight! We’re surfing through a lot of data for you.");
     }, 60 * 1000);
@@ -66,20 +64,20 @@ export default function ChatPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-900 flex flex-col items-center justify-center px-4 py-10 text-gray-100">
+    <main className="min-h-screen bg-gradient-to-r from-[#fdf4f0] to-white flex flex-col items-center justify-center px-4 py-10 text-gray-800 font-serif">
       <div className="flex items-center gap-3 mb-6">
-        <FaPlaneDeparture size={30} className="text-teal-400" />
-        <h1 className="text-3xl font-bold text-white font-mono">Swiss</h1>
+        <FaPlaneDeparture size={30} className="text-[#f85e9f]" />
+        <h1 className="text-3xl font-bold text-gray-900">Swiss</h1>
       </div>
 
-      <div className="w-full max-w-2xl bg-gray-800 shadow-2xl rounded-lg p-6 flex flex-col gap-4 h-[70vh] overflow-y-auto border-2">
+      <div className="w-full max-w-2xl bg-white shadow-2xl rounded-lg p-6 flex flex-col gap-4 h-[70vh] overflow-y-auto border border-[#f1e5e5]">
         {messages.map((msg, idx) => (
           <div
             key={idx}
             className={`text-sm px-4 py-2 rounded-xl max-w-[80%] whitespace-pre-line ${
               msg.from === "user"
-                ? "self-end bg-teal-600 text-white"
-                : "self-start bg-gray-700 text-gray-100"
+                ? "self-end bg-[#fef0ef] text-[#f85e9f]"
+                : "self-start bg-[#f5f5f5] text-gray-800"
             }`}
           >
             {msg.text}
@@ -87,14 +85,14 @@ export default function ChatPage() {
         ))}
 
         {isTyping && (
-          <div className="flex items-center gap-2 text-sm text-teal-400 animate-pulse">
+          <div className="flex items-center gap-2 text-sm text-[#f85e9f] animate-pulse">
             <AiOutlineLoading3Quarters className="animate-spin" />
             Bot is thinking...
           </div>
         )}
 
         {waitMsg && (
-          <div className="text-xs text-yellow-400 italic">{waitMsg}</div>
+          <div className="text-xs text-[#f85e9f] italic">{waitMsg}</div>
         )}
 
         <div ref={messagesEndRef} />
@@ -106,11 +104,11 @@ export default function ChatPage() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           placeholder="Ask anything about your travel..."
-          className="flex-1 px-4 py-2 border border-gray-600 bg-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 font-mono focus:ring-teal-500"
+          className="flex-1 px-4 py-2 border border-[#f3dede] bg-white rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#f85e9f] placeholder:text-sm"
         />
         <button
           onClick={sendMessage}
-          className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition font-mono"
+          className="px-4 py-2 bg-[#f85e9f] text-white rounded-lg hover:bg-[#e7548e] transition"
         >
           Send
         </button>
