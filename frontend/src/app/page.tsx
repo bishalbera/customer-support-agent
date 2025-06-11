@@ -128,7 +128,7 @@ export default function LandingPage() {
           <p className="text-gray-600 mb-6 font-mono">
             Your personal companion for easy and efficient trip planning
           </p>
-          <div className="mt-6 bg-white p-4 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 items-center w-full max-w-md">
+          <div className="mt-6 bg-white p-4 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 items-center w-full max-w-md transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,115,0,0.6)]">
             <div className="flex-1">
               <div className="font-semibold">Location</div>
               <div className="text-gray-500">Los Angeles</div>
