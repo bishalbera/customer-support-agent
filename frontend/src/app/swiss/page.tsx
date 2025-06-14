@@ -15,7 +15,7 @@ export default function SwissPage() {
   );
 }
 
-export  function ChatPage() {
+function ChatPage() {
   const [messages, setMessages] = useState<{ from: string; text: string }[]>(
     []
   );
@@ -82,7 +82,7 @@ export  function ChatPage() {
       if (longTimeoutRef.current) clearTimeout(longTimeoutRef.current);
     }
   };
-  
+
   useEffect(() => {
     const location = searchParams.get("location");
 
