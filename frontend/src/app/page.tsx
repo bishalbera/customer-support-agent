@@ -45,7 +45,12 @@ const DiamondImage = ({
       borderRadius: "24px",
     }}
   >
-    <Image src={src} alt="" className="w-full h-full object-cover" style={{borderRadius: "20px"}} />
+    <Image
+      src={src}
+      alt=""
+      className="w-full h-full object-cover"
+      style={{ borderRadius: "20px" }}
+    />
   </div>
 );
 
@@ -79,11 +84,22 @@ const features = [
 
 export default function LandingPage() {
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
-  const [lottieLoaded, setLottieLoaded] = useState(false);
+  const [locations, setLocations] = useState<string[]>([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
+
+  const handleFindTrip = (selectedLocation: string) => {
+    const encoded = encodeURIComponent(selectedLocation);
+    router.push(`/swiss?location=${encoded}`);
+  };
 
   useEffect(() => {
-    setMounted(true);
+    fetch("/api/location")
+      .then((res) => res.json())
+      .then((data) => {
+        setLocations(data.location);
+        if (data.location.length > 0) setSelectedLocation(data.location[0]);
+      })
+      .catch((err) => console.error("Failed to fetch locations", err));
   }, []);
 
   return (
@@ -129,15 +145,44 @@ export default function LandingPage() {
             Your personal companion for easy and efficient trip planning
           </p>
           <div className="mt-6 bg-white p-4 rounded-xl shadow-md flex flex-col sm:flex-row gap-4 items-center w-full max-w-md transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,115,0,0.6)]">
-            <div className="flex-1">
-              <div className="font-semibold">Location</div>
-              <div className="text-gray-500">Los Angeles</div>
+            <div className="flex-1 w-full">
+              <label className="font-semibold block mb-1 text-gray-800">
+                Location
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className="appearance-none text-gray-700 w-full border border-gray-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition duration-200"
+                >
+                  {locations.map((loc) => (
+                    <option key={loc} value={loc}>
+                      {loc}
+                    </option>
+                  ))}
+                </select>
+                {/* Custom arrow icon */}
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+                  <svg
+                    className="w-4 h-4 text-gray-500"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
-            <div className="flex-1">
-              <div>Data</div>
-              <div>10 July 2025</div>
-            </div>
-            <button className="bg-orange-400 text-white px-6 py-3 rounded-2xl font-semibold">
+            <button
+              className="bg-orange-400 hover:bg-orange-500 transition duration-200 text-white px-6 py-3 rounded-2xl font-semibold"
+              onClick={() => handleFindTrip(selectedLocation)}
+            >
               Find Trip
             </button>
           </div>
@@ -169,7 +214,7 @@ export default function LandingPage() {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="bg-white w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] p-6 rounded-lg shadow hover:shadow-lg transition-transform hover:-translate-y-1 animate-fade-in"
+              className="bg-white w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] p-6 rounded-lg shadow  transition-transform hover:-translate-y-1 animate-fade-in hover:shadow-[0_0_20px_rgba(255,115,0,0.6)]"
               style={{
                 animationDelay: `${idx * 0.2}s`,
                 animationFillMode: "both",
