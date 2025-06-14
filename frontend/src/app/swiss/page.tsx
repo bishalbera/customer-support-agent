@@ -1,13 +1,21 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import axios from "axios";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import ReactMarkdown from "react-markdown";
 import { useSearchParams } from "next/navigation";
 
-export default function ChatPage() {
+export default function SwissPage() {
+  return (
+    <Suspense fallback={<div>Loading chat...</div>}>
+      <ChatPage />
+    </Suspense>
+  );
+}
+
+export  function ChatPage() {
   const [messages, setMessages] = useState<{ from: string; text: string }[]>(
     []
   );
