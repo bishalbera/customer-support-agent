@@ -8,7 +8,7 @@ import ballon from "../assets/hot-air-ballon.png";
 import city from "../assets/rome.jpg";
 import paris from "../assets/paris.jpg";
 import pisa from "../assets/Leaning-Tower-of-Pisa-Italy.webp";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 const Stat = ({
   number,
@@ -30,7 +30,7 @@ const DiamondImage = ({
   src,
   large = false,
 }: {
-  src: any;
+  src: StaticImageData;
   large?: boolean;
 }) => (
   <div

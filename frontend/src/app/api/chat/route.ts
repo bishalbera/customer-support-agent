@@ -5,7 +5,6 @@ export async function POST(req: NextRequest) {
   const body = await req.json();
   const ngrokUrl = process.env.NGROK_URL!;
   const apiKey = process.env.ANTHROPIC_API_KEY!;
-  const mcpAuthToken = process.env.MCP_AUTH_TOKEN!;
 
   const anthropic = new Anthropic({ apiKey });
 

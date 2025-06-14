@@ -66,6 +66,7 @@ export default function ChatPage() {
           text: "Sorry! Something went wrong. Please try again later.",
         },
       ]);
+      console.log(err);
     } finally {
       setIsTyping(false);
       setWaitMsg("");
